@@ -268,8 +268,6 @@ impl pallet_template::Trait for Runtime {
 }
 
 impl faucet_pallet::Trait for Runtime {
-//	type AuthorityId = offchain_pallet::crypto::TestAuthId;
-//	type Call = Call;
 	type Event = Event;
 	type Currency = Balances;
 }
