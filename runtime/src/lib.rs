@@ -41,6 +41,7 @@ pub use frame_support::{
 /// Import the template pallet.
 pub use pallet_template;
 pub use faucet_pallet;
+pub use pallet_offchain;
 
 /// An index to a block.
 pub type BlockNumber = u32;
@@ -272,6 +273,10 @@ impl faucet_pallet::Trait for Runtime {
 	type Currency = Balances;
 }
 
+impl pallet_offchain::Trait for Runtime {
+  type Event = Event;
+}
+
 impl<C> frame_system::offchain::SendTransactionTypes<C> for Runtime
 where
 	Call: From<C>,
@@ -298,6 +303,8 @@ construct_runtime!(
 		// Include the custom logic from the template pallet in the runtime.
 		TemplateModule: pallet_template::{Module, Call, Storage, Event<T>},
 		FaucetPallet: faucet_pallet::{Module, Call, Storage, Event<T>,ValidateUnsigned},
+//		offchain_test: pallet_offchain::{Module, Call, Storage, Event<T>},
+		offchain_test: pallet_offchain::{ Module, Call, Storage, Event<T> },
 
 	}
 );

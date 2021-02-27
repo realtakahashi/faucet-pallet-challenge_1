@@ -1,3 +1,6 @@
 [submodule "pallets/faucet_pallet"]
 	path = pallets/faucet_pallet
 	url = https://github.com/realtakahashi/faucet_pallet.git
+[submodule "pallets/offchaintest"]
+	path = pallets/offchaintest
+	url = https://github.com/realtakahashi/offchaintest.git
